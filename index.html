@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dara 英语口语复习站</title>
+<style>
+:root{
+  --purple:#5b5bd6; --purple-dark:#4343b8; --purple-light:#efeffc;
+  --ink:#26263a; --sub:#6b6b80; --line:#e8e8f2;
+  --bg:#f6f7fb; --card:#ffffff; --orange:#ff8a3d; --green:#2faf7a;
+  --shadow:0 2px 10px rgba(60,60,140,.07); --shadow-lg:0 10px 30px rgba(60,60,140,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+a{color:var(--purple);text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ===== 顶部导航 ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:12px 16px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;color:var(--ink);margin-right:auto}
+.logo .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#6a6ae0,#8a5cf6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+.nav a.nl{padding:7px 14px;border-radius:99px;font-size:14px;color:var(--sub);font-weight:600}
+.nav a.nl.on,.nav a.nl:hover{background:var(--purple-light);color:var(--purple)}
+
+/* ===== 通用布局 ===== */
+main{max-width:960px;margin:0 auto;padding:26px 16px 70px}
+.hero{background:linear-gradient(120deg,#5b5bd6,#8a5cf6 55%,#b45cf0);color:#fff;border-radius:22px;padding:36px 30px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero h1{font-size:26px;margin-bottom:8px}
+.hero p{opacity:.92;font-size:14px;max-width:620px}
+.stats{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:10px 18px;font-size:13px}
+.stat b{font-size:20px;display:block}
+
+/* ===== 课程卡片 ===== */
+.sec-title{font-size:18px;font-weight:800;margin:30px 0 14px;display:flex;align-items:center;gap:8px}
+.sec-title::before{content:"";width:5px;height:18px;border-radius:3px;background:var(--purple)}
+.lcard{display:flex;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);transition:.2s;margin-bottom:14px;align-items:center}
+.lcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.lnum{flex:none;width:64px;height:64px;border-radius:16px;background:var(--purple-light);color:var(--purple);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800}
+.lcard h3{font-size:18px;margin-bottom:4px}
+.lcard .meta{font-size:13px;color:var(--sub);margin-bottom:6px}
+.lcard .sum{font-size:14px;color:var(--sub)}
+.tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;background:var(--purple-light);color:var(--purple);padding:2px 10px;border-radius:99px;font-weight:600}
+.lcard .go{margin-left:auto;flex:none;color:#c9c9dd;font-size:22px}
+
+/* ===== 课程详情 ===== */
+.backlink{display:inline-block;font-size:13px;color:var(--sub);margin-bottom:14px}
+.backlink:hover{color:var(--purple)}
+.lhead{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow);margin-bottom:20px}
+.lhead h1{font-size:23px;margin-bottom:6px}
+.lhead .meta{font-size:13px;color:var(--sub)}
+.lhead .sum{margin-top:10px;font-size:14px;color:var(--sub);background:var(--bg);border-radius:12px;padding:12px 14px}
+.section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow);margin-bottom:16px}
+.section h2{font-size:17px;padding-left:12px;border-left:5px solid var(--purple);margin-bottom:14px;line-height:1.4}
+.section.text p{font-size:15px}
+.plist{list-style:none}
+.plist li{padding:9px 0 9px 4px;border-bottom:1px dashed var(--line);font-size:15px}
+.plist li:last-child{border-bottom:none}
+.en{color:var(--purple);font-weight:700}
+.enwrap{display:inline}
+.say{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--purple-light);font-size:13px;margin:0 6px;vertical-align:-6px;transition:.15s}
+.say:hover{background:var(--purple);transform:scale(1.1)}
+.say:active{transform:scale(.9)}
+.say.big{width:38px;height:38px;font-size:17px;border-radius:12px;vertical-align:0}
+
+/* 对话 */
+.dlg{display:flex;flex-direction:column;gap:12px}
+.bubble{max-width:82%;padding:11px 15px;border-radius:16px;font-size:15px;position:relative}
+.bubble .who{display:block;font-size:12px;font-weight:700;margin-bottom:3px;opacity:.75}
+.bubble.left{align-self:flex-start;background:var(--purple-light);border-bottom-left-radius:4px}
+.bubble.right{align-self:flex-end;background:#fff0e6;border-bottom-right-radius:4px}
+
+/* 作业 */
+.homework{background:#fffaf0;border:1px solid #ffe1b0;border-radius:14px;padding:16px 18px;font-size:15px}
+
+/* ===== 生词页 ===== */
+.toolbar{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.search{flex:1;min-width:200px;padding:11px 16px;border:1px solid var(--line);border-radius:12px;font-size:14px;font-family:inherit;outline:none;background:#fff}
+.search:focus{border-color:var(--purple)}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);transition:.2s}
+.vcard:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.vtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vword{font-size:19px;font-weight:800;color:var(--ink)}
+.vphon{font-size:13px;color:var(--sub)}
+.vmean{font-size:14px;color:var(--sub);margin:6px 0 10px}
+.vex{border-top:1px dashed var(--line);padding-top:10px;font-size:13.5px}
+.vex .cn{color:var(--sub);display:block;margin-top:3px;font-size:13px}
+
+/* ===== 设置页 ===== */
+.setcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+.setrow{margin-bottom:22px}
+.setrow label{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+.setrow select,.setrow input[type=range]{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:14px;font-family:inherit;background:#fff}
+.btn{display:inline-block;background:var(--purple);color:#fff;padding:11px 22px;border-radius:12px;font-size:14px;font-weight:700;transition:.15s}
+.btn:hover{background:var(--purple-dark)}
+
+/* ===== 更新说明 ===== */
+.help{background:var(--card);border:1px dashed #c9c9ee;border-radius:18px;padding:24px 26px;font-size:14px;color:var(--sub)}
+.help h3{color:var(--ink);margin:14px 0 6px;font-size:15px}
+.help h3:first-child{margin-top:0}
+.help code{display:block;background:#f0f0fa;border-radius:10px;padding:12px 14px;margin:8px 0;font-size:12.5px;overflow-x:auto;color:#43438a;font-family:ui-monospace,Menlo,Consolas,monospace;white-space:pre}
+.help .mark-line{color:var(--orange);font-weight:700}
+
+footer{text-align:center;color:#a5a5bd;font-size:12.5px;padding:26px 16px 40px}
+.empty{text-align:center;color:var(--sub);padding:60px 0}
+@media(max-width:600px){
+  .hero{padding:26px 20px}.hero h1{font-size:21px}
+  .lcard{align-items:flex-start}.lnum{width:48px;height:48px;font-size:20px;border-radius:12px}
+  .bubble{max-width:92%}
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#/"><span class="mark">D</span>Dara 英语复习站</a>
+    <a class="nl" href="#/" data-nav="home">课程</a>
+    <a class="nl" href="#/vocabulary" data-nav="vocab">生词本</a>
+    <a class="nl" href="#/settings" data-nav="settings">声音设置</a>
+  </div>
+</header>
+<main id="app"></main>
+<footer>Dara 英语口语复习站 · 发音由浏览器内置语音引擎提供(免费、无需联网)<br>手机上用 Safari / Chrome 打开均可朗读</footer>
+
+<script>
+/* 课程数据:每节课一个对象,加新课粘贴在 ★★★ 标记上方即可(无需自己改,发给助手重写更方便) */
+const LESSONS = [
+  {
+    id: 1,
+    date: "2026-09-22",
+    title: "第 1 课:特殊疑问句 + 全英情景对话",
+    subtitle: "Mike 老师 · 英语口语提升",
+    summary: "先用新概念二 Lesson 1 热身,系统学习特殊疑问句的造句规则(疑问词 + 助动词 + 主语 + 动词),最后完成一段“高铁上遇见泰国服装商人”的全英情景模拟。",
+    tags: ["特殊疑问句", "5W1H", "how 家族", "商务词汇", "情景对话"],
+    sections: [
+      { h: "一、课前热身", type: "text", text: "朗读新概念英语第二册 Lesson 1:<span class='en'>A Private Conversation</span>(课文以前背过,读得很熟)。课堂提问:<span class='en'>Why did the writer complain to the people behind him?</span> 回答要点:<span class='en'>Because they were talking loudly, so he could not hear the actors.</span>" },
+
+      { h: "二、核心语法:特殊疑问句", type: "list", items: [
+        "基本结构:<b>疑问词 + 助动词 + 主语 + 动词原形</b>,后面的词都是修饰成分。每个单词在句子里都有固定的位置和功能,说准了才会自信、流利。",
+        "疑问词 = 5W1H:<span class='en'>What / Where / Who / Why / Which + How</span>。助动词本身没有意义,只是帮助构成疑问。",
+        "助动词二选一规则:句子里<b>有动词</b> → 用 <span class='en'>do / does / did</span>(随时态变化);句子里<b>没有动词</b>(主系表:描述“是什么 / 怎么样”)→ 用 <span class='en'>am / is / are</span>。",
+        "例:<span class='en'>What did you learn from this conversation?</span>——learn 是动词所以用 did;“学到了”是已经发生的事,锁定过去式 did。",
+        "例:<span class='en'>What is your major business?</span>——business 是名词,句子没有动作(主系表),所以用 is,不能用 do/does。",
+        "<span class='en'>What</span> 和 <span class='en'>Which</span> 后面可以直接加名词,表示“哪一种”:<span class='en'>Which music style do you like best?</span> = <span class='en'>Which style of English do you like best?</span>。疑问词不一定是单个单词,what kind of / which + 名词 都作为一个整体。",
+        "英语没有唯一的标准答案:美剧里说法各种各样,只要<b>意思表达清楚 + 语法正确</b>就是对的。",
+      ]},
+
+      { h: "三、How 的大家族(how + 形容词)", type: "list", items: [
+        "<span class='en'>How much</span> 多少(不可数)/ 多少钱:<span class='en'>How much water do you drink?</span>",
+        "<span class='en'>How many</span> 多少(可数):<span class='en'>How many units do you have?</span>",
+        "<span class='en'>How long</span> 多长时间:<span class='en'>How long will you stay?</span>",
+        "<span class='en'>How often</span> 多久一次(频率):<span class='en'>How often do you travel?</span>",
+        "<span class='en'>How soon</span> 还要多久(将来):<span class='en'>How soon will he come back?</span>",
+        "<span class='en'>How far</span> 多远(距离):<span class='en'>How far is the station?</span>",
+        "<span class='en'>How high / How tall</span> 多高:<span class='en'>How tall is this product?</span>",
+        "<span class='en'>How fast</span> 多快(速度):<span class='en'>How fast can you run?</span>",
+        "<span class='en'>How old</span> 多大(年龄):<span class='en'>How old are you?</span>",
+        "<span class='en'>How big</span> 多大(空间):<span class='en'>How big is your room?</span>",
+      ]},
+
+      { h: "四、课堂造句练习(中英对照)", type: "list", items: [
+        "<span class='en'>What did you do today?</span> 你今天做了什么?",
+        "<span class='en'>Which music style do you like the most?</span> 你最喜欢哪一种音乐风格?",
+        "<span class='en'>Who is the project leader?</span> 谁是项目负责人?",
+        "<span class='en'>Why don't we execute this as planned?</span> 我们为什么不按计划执行?",
+        "<span class='en'>Where did you go yesterday?</span> 你昨天去哪里了?",
+        "<span class='en'>How did you do it?</span> 你是如何做到这件事的?",
+        "<span class='en'>How many units do you have in stock?</span> 你们有多少件库存?(中文“库存”要补成“库存里的产品”,用 units)",
+        "<span class='en'>How far is it to ship from China to the US warehouse?</span> 从中国寄到美国仓库有多远?(双方已知的东西用 it 代替)",
+        "<span class='en'>How long will you stay in China?</span> 你会在中国待多久?",
+        "<span class='en'>How tall is this product?</span> 这个产品有多高?",
+      ]},
+
+      { h: "五、情景模拟:高铁上遇见泰国服装商人", type: "dialog", lines: [
+        ["Mike(泰国商人)", "Hey, can you speak English?"],
+        ["Dara", "Just a little. What can I do for you?"],
+        ["Mike", "Could you tell me which way I can go to Shanghai station?"],
+        ["Dara", "When the train stops, go out of the station and follow the green exit signs. You can also ask the staff there."],
+        ["Mike", "Great, thank you! My name is Mike. Nice to meet you."],
+        ["Dara", "Nice to meet you too. I am Dara. Where are you from?"],
+        ["Mike", "I am from Thailand."],
+        ["Dara", "What will you do in China?"],
+        ["Mike", "Two things — business and travel. First I will go to Chengdu to meet our business partner. We sell clothing in Thailand."],
+        ["Dara", "What kind of products will you buy in China?"],
+        ["Mike", "Clothes. Guangzhou has so many manufacturers, so I will go there first to look for styles."],
+        ["Dara", "Is Chinese clothing cheaper than in your country?"],
+        ["Mike", "A little cheaper, but we focus on high-end customers, so we need high quality. We keep at least 50% profit on each product."],
+        ["Mike", "Now it's your turn — ask me some questions."],
+      ]},
+
+      { h: "六、老师点评与建议", type: "list", items: [
+        "基础不错,语感(“第六感”)很好,很多句子能凭感觉说对;但口语要随机应变,<b>必须理解规则</b>,不能只靠背过的句子。",
+        "目前最缺的两点:<b>语言组织能力</b> + <b>单词生疏</b>(尤其是商务词汇)。",
+        "沟通不能连环提问(像查户口),要先<b>回应对方、给情绪价值</b>——重复对方的话、表达赞同或惊讶,再问下一个问题。",
+        "不要反复说 <span class='en'>Welcome to China</span>,自然衔接话题即可。",
+        "以后尽量<b>全英授课</b>:听不懂的地方直接用英语问,例如 <span class='en'>Pardon, could you say that again?</span> 在不断提问中强迫自己开口。",
+      ]},
+
+      { h: "课后作业", type: "homework", text: "1) 每天朗读一篇新概念文章,保持开口;2) 用本课句型自己造 4 个特殊疑问句(关于工作或生活),下次课检查;3) 等 Mike 老师发出学习规划,接下来会加入商务英语词汇。" },
+    ]
+  },
+  // ★★★ 新课程粘贴在这一行的上方 ★★★
+];
+
+/* 生词数据:w 单词 p 音标 m 释义 e 例句 c 例句中文 */
+const WORDS = [
+  { w:"theater", p:"/ˈθɪətə(r)/", m:"n. 剧院;戏院", e:"I went to the theater last week.", c:"上周我去了剧院。" },
+  { w:"bear", p:"/beə(r)/", m:"v. 忍受(could not bear it 忍无可忍)", e:"In the end, I could not bear it.", c:"最后,我忍无可忍了。" },
+  { w:"rudely", p:"/ˈruːdli/", m:"adv. 粗鲁地;无礼地", e:"It is none of your business, the young man said rudely.", c:"这不关你的事,年轻人粗鲁地说。" },
+  { w:"business", p:"/ˈbɪznəs/", m:"n. 生意;业务;公司", e:"What is your major business?", c:"你们的主营业务是什么?" },
+  { w:"major", p:"/ˈmeɪdʒə(r)/", m:"adj. 主要的;重要的", e:"What is your major business?", c:"你们的主营业务是什么?" },
+  { w:"style", p:"/staɪl/", m:"n. 风格;款式", e:"Which music style do you like best?", c:"你最喜欢哪种音乐风格?" },
+  { w:"project leader", p:"/ˈprɒdʒekt ˈliːdə(r)/", m:"n. 项目负责人", e:"Who is the project leader?", c:"谁是项目负责人?" },
+  { w:"execute", p:"/ˈeksɪkjuːt/", m:"v. 执行;实施", e:"Why don't we execute this plan as planned?", c:"我们为什么不按计划执行这个方案呢?" },
+  { w:"executive", p:"/ɪɡˈzekjətɪv/", m:"n. 执行官;高管(CEO 中间的 E)", e:"CEO means Chief Executive Officer.", c:"CEO 的意思是首席执行官。" },
+  { w:"unit", p:"/ˈjuːnɪt/", m:"n. 件;单位(产品数量)", e:"How many units do you have in stock?", c:"你们有多少件库存?" },
+  { w:"stock", p:"/stɒk/", m:"n. 库存;存货(in stock 有现货)", e:"We have 1,000 units in stock.", c:"我们有 1000 件库存。" },
+  { w:"warehouse", p:"/ˈweəhaʊs/", m:"n. 仓库", e:"How far is it to the US warehouse?", c:"到美国仓库有多远?" },
+  { w:"ship", p:"/ʃɪp/", m:"v. 船运;寄送(ship from A to B 从 A 运到 B)", e:"We ship products from China to Thailand.", c:"我们把产品从中国运到泰国。" },
+  { w:"customer", p:"/ˈkʌstəmə(r)/", m:"n. 客户;顾客", e:"We focus on high-end customers.", c:"我们专注于高端客户。" },
+  { w:"high-end", p:"/ˌhaɪ ˈend/", m:"adj. 高端的;高档的", e:"We focus on high-end customers.", c:"我们专注于高端客户。" },
+  { w:"profit", p:"/ˈprɒfɪt/", m:"n. 利润;收益", e:"We keep at least 50% profit on each product.", c:"每件产品我们至少保留 50% 的利润。" },
+  { w:"shipping cost", p:"/ˈʃɪpɪŋ kɒst/", m:"n. 运费;运输成本", e:"Remember to calculate the shipping costs.", c:"记得把运费算进去。" },
+  { w:"marketing", p:"/ˈmɑːkɪtɪŋ/", m:"n. 市场营销;推广", e:"Marketing costs are also part of the budget.", c:"营销费用也是预算的一部分。" },
+  { w:"manufacturer", p:"/ˌmænjəˈfæktʃərə(r)/", m:"n. 制造商;厂商", e:"Guangzhou has many clothing manufacturers.", c:"广州有很多服装制造商。" },
+  { w:"clothing", p:"/ˈkləʊðɪŋ/", m:"n. 服装(总称)", e:"We sell clothing in Thailand.", c:"我们在泰国卖服装。" },
+  { w:"order", p:"/ˈɔːdə(r)/", m:"n./v. 订单;订购(place an order 下单)", e:"We will place the order next week.", c:"我们下周会下单。" },
+  { w:"spicy", p:"/ˈspaɪsi/", m:"adj. 辣的", e:"I like spicy food, like Chongqing hot pot.", c:"我喜欢辣的食物,比如重庆火锅。" },
+  { w:"brand", p:"/brænd/", m:"n. 品牌", e:"Which brand do you like best?", c:"你最喜欢哪个品牌?" },
+  // ★★★ 新单词粘贴在这一行的上方 ★★★
+];
+
+/* ================= 工具函数 ================= */
+const app = document.getElementById("app");
+const FEMALE_RE = /female|zira|samantha|susan|karen|moira|tessa|serena|allison|ava|zoe|ting|mei-jia|sin-ji|google uk english female/i;
+let VOICES = [];
+
+function loadVoices(){
+  VOICES = speechSynthesis.getVoices().filter(v => v.lang.startsWith("en"));
+  if(!VOICES.length){ VOICES = speechSynthesis.getVoices(); }
+}
+if("speechSynthesis" in window){
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+function getVoice(){
+  const saved = localStorage.getItem("daraVoice");
+  return VOICES.find(v => v.name === saved) || VOICES.find(v => /google us english/i.test(v.name)) || VOICES[0] || null;
+}
+function getRate(){
+  return parseFloat(localStorage.getItem("daraRate") || "0.9");
+}
+function speak(text, big){
+  if(!("speechSynthesis" in window)){ alert("当前浏览器不支持语音朗读,请用 Chrome / Safari 打开"); return; }
+  const u = new SpeechSynthesisUtterance(text);
+  const v = getVoice();
+  if(v){ u.voice = v; u.lang = v.lang; } else { u.lang = "en-US"; }
+  u.rate = getRate();
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+function sayBtn(text){
+  return '<button class="say" data-say="' + text + '" title="朗读">🔊</button>';
+}
+function decorateEn(html){
+  return html.replace(/<span class='en'>([\s\S]*?)<\/span>/g, function(m, t){
+    return sayBtn(t) + '<span class="en">' + t + '</span>';
+  });
+}
+
+/* ================= 页面渲染 ================= */
+function renderHome(){
+  const cards = LESSONS.slice().sort((a,b)=>b.id-a.id).map(l => {
+    const wordCount = l.id === 1 ? WORDS.length : 0;
+    return '<a class="lcard" href="#/lesson/' + l.id + '">' +
+      '<div class="lnum">' + l.id + '</div>' +
+      '<div><h3>' + l.title + '</h3>' +
+      '<div class="meta">' + l.date + ' · ' + l.subtitle + (wordCount ? ' · 配套生词 ' + wordCount + ' 个' : '') + '</div>' +
+      '<div class="sum">' + l.summary + '</div>' +
+      '<div class="tags">' + l.tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div></div>' +
+      '<div class="go">›</div></a>';
+  }).join("");
+
+  app.innerHTML =
+    '<div class="hero">' +
+      '<h1>Dara 的英语口语复习站</h1>' +
+      '<p>把每节课的笔记、句型、情景对话和生词都收在这里,随时点开复习。点击任意 🔊 按钮即可听发音。</p>' +
+      '<div class="stats">' +
+        '<div class="stat"><b>' + LESSONS.length + '</b>节课</div>' +
+        '<div class="stat"><b>' + WORDS.length + '</b>个生词</div>' +
+        '<div class="stat"><b>🔊</b>点击即发音</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="sec-title">课程列表</div>' + cards;
+}
+
+function renderLesson(id){
+  const l = LESSONS.find(x => x.id === id);
+  if(!l){ app.innerHTML = '<div class="empty">没有找到这节课 😅<br><br><a href="#/">← 返回课程列表</a></div>'; return; }
+
+  const sections = l.sections.map(s => {
+    let body = "";
+    if(s.type === "text"){ body = '<div class="section text"><h2>' + s.h + '</h2><p>' + decorateEn(s.text) + '</p></div>'; }
+    else if(s.type === "list"){ body = '<div class="section"><h2>' + s.h + '</h2><ul class="plist">' + s.items.map(i => '<li>' + decorateEn(i) + '</li>').join('') + '</ul></div>'; }
+    else if(s.type === "dialog"){
+      const lines = s.lines.map(function(ln){
+        const who = ln[0], text = ln[1];
+        const side = /dara/i.test(who) ? 'right' : 'left';
+        return '<div class="bubble ' + side + '"><span class="who">' + who + '</span>' + decorateEn("<span class='en'>" + text + "</span>") + '</div>';
+      }).join('');
+      body = '<div class="section"><h2>' + s.h + '</h2><div class="dlg">' + lines + '</div></div>';
+    }
+    else if(s.type === "homework"){ body = '<div class="section"><h2>' + s.h + '</h2><div class="homework">' + decorateEn(s.text) + '</div></div>'; }
+    return body;
+  }).join("");
+
+  app.innerHTML =
+    '<a class="backlink" href="#/">← 返回课程列表</a>' +
+    '<div class="lhead"><h1>' + l.title + '</h1><div class="meta">' + l.date + ' · ' + l.subtitle + '</div>' +
+    '<div class="tags" style="margin-top:10px">' + l.tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div>' +
+    '<div class="sum">' + l.summary + '</div></div>' +
+    sections +
+    '<div style="text-align:center;margin-top:26px"><a class="btn" href="#/vocabulary">去本课生词本复习 →</a></div>';
+}
+
+function renderVocab(){
+  app.innerHTML =
+    '<a class="backlink" href="#/">← 返回课程列表</a>' +
+    '<div class="sec-title" style="margin-top:0">生词本(' + WORDS.length + ' 个)</div>' +
+    '<div class="toolbar"><input class="search" id="vsearch" placeholder="输入英文或中文,过滤生词…"></div>' +
+    '<div class="vgrid" id="vgrid"></div>';
+
+  function draw(kw){
+    kw = (kw || "").trim().toLowerCase();
+    const list = WORDS.filter(w => !kw || w.w.toLowerCase().includes(kw) || w.m.toLowerCase().includes(kw) || w.c.includes(kw));
+    document.getElementById("vgrid").innerHTML = list.map(function(w){
+      return '<div class="vcard">' +
+        '<div class="vtop"><span class="vword">' + w.w + '</span>' + sayBtn(w.w).replace('class="say"','class="say big"') + '<span class="vphon">' + w.p + '</span></div>' +
+        '<div class="vmean">' + w.m + '</div>' +
+        '<div class="vex">' + sayBtn(w.e) + '<span class="en">' + w.e + '</span><span class="cn">' + w.c + '</span></div>' +
+      '</div>';
+    }).join('') || '<div class="empty">没有匹配的生词</div>';
+  }
+  draw("");
+  document.getElementById("vsearch").addEventListener("input", function(e){ draw(e.target.value); });
+}
+
+function renderSettings(){
+  const options = VOICES.map(function(v){
+    const mark = FEMALE_RE.test(v.name) ? " 💃" : "";
+    return '<option value="' + v.name + '"' + (getVoice() && getVoice().name === v.name ? " selected" : "") + '>' + v.name + mark + ' (' + v.lang + ')</option>';
+  }).join('');
+  app.innerHTML =
+    '<a class="backlink" href="#/">← 返回课程列表</a>' +
+    '<div class="sec-title" style="margin-top:0">声音设置</div>' +
+    '<div class="setcard">' +
+      '<div class="setrow"><label>选择发音声音(推荐女声,列表里 💃 为女声)</label>' +
+      '<select id="voiceSel"><option value="">自动(默认)</option>' + options + '</select></div>' +
+      '<div class="setrow"><label>语速:<span id="rateVal">' + getRate() + '</span></label>' +
+      '<input type="range" id="rateRange" min="0.5" max="1.3" step="0.05" value="' + getRate() + '"></div>' +
+      '<button class="btn" id="testBtn">🔊 测试发音</button>' +
+    '</div>';
+  document.getElementById("voiceSel").addEventListener("change", function(e){
+    localStorage.setItem("daraVoice", e.target.value);
+  });
+  document.getElementById("rateRange").addEventListener("input", function(e){
+    document.getElementById("rateVal").textContent = e.target.value;
+    localStorage.setItem("daraRate", e.target.value);
+  });
+  document.getElementById("testBtn").addEventListener("click", function(){
+    speak("Hi Dara, welcome back! Let's practice English together.");
+  });
+}
+
+/* ================= 路由 ================= */
+function route(){
+  const h = location.hash || "#/";
+  document.querySelectorAll(".nl").forEach(a => a.classList.remove("on"));
+  const m = h.match(/#\/lesson\/(\d+)/);
+  if(m){ renderLesson(parseInt(m[1], 10)); document.querySelector('[data-nav="home"]').classList.add("on"); }
+  else if(h.indexOf("#/vocab") === 0){ renderVocab(); document.querySelector('[data-nav="vocab"]').classList.add("on"); }
+  else if(h.indexOf("#/settings") === 0){ renderSettings(); document.querySelector('[data-nav="settings"]').classList.add("on"); }
+  else { renderHome(); document.querySelector('[data-nav="home"]').classList.add("on"); }
+  window.scrollTo(0, 0);
+}
+/* 全局点击:点 🔊 按钮朗读 */
+document.addEventListener("click", function(e){
+  var s = e.target.closest ? e.target.closest(".say") : null;
+  if(s){ e.preventDefault(); e.stopPropagation(); speak(s.getAttribute("data-say")); }
+});
+
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
