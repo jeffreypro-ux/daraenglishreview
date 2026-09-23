@@ -119,10 +119,10 @@ footer{text-align:center;color:#a5a5bd;font-size:12.5px;padding:26px 16px 40px}
 <body>
 <header>
   <div class="nav">
-    <a class="logo" href="#/"><span class="mark">D</span>Dara 英语复习站</a>
-    <a class="nl" href="#/" data-nav="home">课程</a>
-    <a class="nl" href="#/vocabulary" data-nav="vocab">生词本</a>
-    <a class="nl" href="#/settings" data-nav="settings">声音设置</a>
+    <a class="logo" href="#/" target="_self"><span class="mark">D</span>Dara 英语复习站</a>
+    <a class="nl" href="#/" target="_self" data-nav="home">课程</a>
+    <a class="nl" href="#/vocabulary" target="_self" data-nav="vocab">生词本</a>
+    <a class="nl" href="#/settings" target="_self" data-nav="settings">声音设置</a>
   </div>
 </header>
 <main id="app"></main>
@@ -303,7 +303,7 @@ function renderHome(){
 
 function renderLesson(id){
   const l = LESSONS.find(x => x.id === id);
-  if(!l){ app.innerHTML = '<div class="empty">没有找到这节课 😅<br><br><a href="#/">← 返回课程列表</a></div>'; return; }
+  if(!l){ app.innerHTML = '<div class="empty">没有找到这节课 😅<br><br><a href="#/" target="_self">← 返回课程列表</a></div>'; return; }
 
   const sections = l.sections.map(s => {
     let body = "";
@@ -322,17 +322,17 @@ function renderLesson(id){
   }).join("");
 
   app.innerHTML =
-    '<a class="backlink" href="#/">← 返回课程列表</a>' +
+    '<a class="backlink" href="#/" target="_self">← 返回课程列表</a>' +
     '<div class="lhead"><h1>' + l.title + '</h1><div class="meta">' + l.date + ' · ' + l.subtitle + '</div>' +
     '<div class="tags" style="margin-top:10px">' + l.tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div>' +
     '<div class="sum">' + l.summary + '</div></div>' +
     sections +
-    '<div style="text-align:center;margin-top:26px"><a class="btn" href="#/vocabulary">去本课生词本复习 →</a></div>';
+    '<div style="text-align:center;margin-top:26px"><a class="btn" href="#/vocabulary" target="_self">去本课生词本复习 →</a></div>';
 }
 
 function renderVocab(){
   app.innerHTML =
-    '<a class="backlink" href="#/">← 返回课程列表</a>' +
+    '<a class="backlink" href="#/" target="_self">← 返回课程列表</a>' +
     '<div class="sec-title" style="margin-top:0">生词本(' + WORDS.length + ' 个)</div>' +
     '<div class="toolbar"><input class="search" id="vsearch" placeholder="输入英文或中文,过滤生词…"></div>' +
     '<div class="vgrid" id="vgrid"></div>';
@@ -358,7 +358,7 @@ function renderSettings(){
     return '<option value="' + v.name + '"' + (getVoice() && getVoice().name === v.name ? " selected" : "") + '>' + v.name + mark + ' (' + v.lang + ')</option>';
   }).join('');
   app.innerHTML =
-    '<a class="backlink" href="#/">← 返回课程列表</a>' +
+    '<a class="backlink" href="#/" target="_self">← 返回课程列表</a>' +
     '<div class="sec-title" style="margin-top:0">声音设置</div>' +
     '<div class="setcard">' +
       '<div class="setrow"><label>选择发音声音(推荐女声,列表里 💃 为女声)</label>' +
@@ -393,7 +393,14 @@ function route(){
 /* 全局点击:点 🔊 按钮朗读 */
 document.addEventListener("click", function(e){
   var s = e.target.closest ? e.target.closest(".say") : null;
-  if(s){ e.preventDefault(); e.stopPropagation(); speak(s.getAttribute("data-say")); }
+  if(s){ e.preventDefault(); e.stopPropagation(); speak(s.getAttribute("data-say")); return; }
+  /* 站内导航:拦截默认行为,强制当前窗口内 hash 跳转,绝不新开窗口 */
+  var a = e.target.closest ? e.target.closest("a[href^='#/']") : null;
+  if(a){
+    e.preventDefault();
+    var target = a.getAttribute("href");
+    if(location.hash === target){ route(); } else { location.hash = target; }
+  }
 });
 
 window.addEventListener("hashchange", route);
