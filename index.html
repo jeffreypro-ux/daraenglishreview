@@ -115,6 +115,7 @@ footer{text-align:center;color:#a5a5bd;font-size:12.5px;padding:26px 16px 40px}
 }
 </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 <header>
@@ -139,7 +140,6 @@ const LESSONS = [
     summary: "先用新概念二 Lesson 1 热身,系统学习特殊疑问句的造句规则(疑问词 + 助动词 + 主语 + 动词),最后完成一段“高铁上遇见泰国服装商人”的全英情景模拟。",
     tags: ["特殊疑问句", "5W1H", "how 家族", "商务词汇", "情景对话"],
     sections: [
-      { h: "一、课前热身", type: "text", text: "朗读新概念英语第二册 Lesson 1:<span class='en'>A Private Conversation</span>(课文以前背过,读得很熟)。课堂提问:<span class='en'>Why did the writer complain to the people behind him?</span> 回答要点:<span class='en'>Because they were talking loudly, so he could not hear the actors.</span>" },
 
       { h: "二、核心语法:特殊疑问句", type: "list", items: [
         "基本结构:<b>疑问词 + 助动词 + 主语 + 动词原形</b>,后面的词都是修饰成分。每个单词在句子里都有固定的位置和功能,说准了才会自信、流利。",
@@ -205,7 +205,90 @@ const LESSONS = [
       { h: "课后作业", type: "homework", text: "1) 每天朗读一篇新概念文章,保持开口;2) 用本课句型自己造 4 个特殊疑问句(关于工作或生活),下次课检查;3) 等 Mike 老师发出学习规划,接下来会加入商务英语词汇。" },
     ]
   },
-  // ★★★ 新课程粘贴在这一行的上方 ★★★
+    {
+    id: 2,
+    date: "2026-09-28",
+    title: "第 2 课:一般疑问句 + 情态动词 + 商务接待对话",
+    subtitle: "Mike 老师 · 英语口语提升",
+    summary: "课前用中秋/国庆话题热身;精读新概念二 Lesson 11 辨析 borrow 与 lend;复盘特殊疑问句并完成一段“接待外国文具采购商”的全英情景对话(展厅、车间、报价、交期、货代);最后学习一般疑问句与情态动词(should/would/will/shall/can)的造句规则,用 8 个商务句型当堂练习。",
+    tags: ["一般疑问句", "情态动词", "borrow & lend", "商务接待", "货代术语"],
+    sections: [
+
+      { h: "一、课文精读:borrow 与 lend", type: "list", items: [
+        "朗读新概念二 Lesson 11 <span class=\'en\'>One Good Turn Deserves Another</span>:Tony 在银行工作、薪水不错,却总爱向朋友借钱不还;这回他刚坐下吃饭,\'我\'就向他借 20 英镑,他立刻掏钱说:\'我从没借过你的钱,所以这顿你请客!\'",
+        "<span class=\'en\'>borrow</span> = 借入(向别人借):<span class=\'en\'>borrow money from somebody</span>;<span class=\'en\'>lend</span> = 借出(借给别人):<span class=\'en\'>lend somebody something</span> / <span class=\'en\'>lend something to somebody</span>。",
+        "造句练习:\'我昨天借了 30 块给我的朋友\' → <span class=\'en\'>I lent 30 dollars to my friend yesterday.</span>",
+      ]},
+
+      { h: "二、复习:特殊疑问句(客户接待四问)", type: "list", items: [
+        "你什么时候来我们公司?<span class=\'en\'>When do you want to come to my company?</span>",
+        "你在找什么样的产品?<span class=\'en\'>What kind of products are you looking for?</span>(或 <span class=\'en\'>What kind of product do you like?</span>)",
+        "你计划在中国待多久?<span class=\'en\'>How long do you plan to stay in China?</span>",
+        "这批订单你想下多少?<span class=\'en\'>How many do you want to order in this batch?</span>(batch = 批次)",
+        "你对产品有什么要求?<span class=\'en\'>What\'s your requirement of this product?</span> / <span class=\'en\'>Do you have any requirements?</span>",
+      ]},
+
+      { h: "三、情景模拟:接待外国文具采购商", type: "dialog", lines: [
+        ["Dara", "Hi Mike, welcome to my company."],
+        ["Mike(外国客户)", "Nice to see you, Dara."],
+        ["Dara", "What kind of products are you looking for?"],
+        ["Mike(外国客户)", "I\'m looking for some stationery products like pens and notebooks. We have a huge educational market in Europe."],
+        ["Dara", "We have many kinds of them. I can take you to our display room."],
+        ["Mike(外国客户)", "The blue one is so big, and the quality is so good."],
+        ["Dara", "Our product quality is good, and the price is also cost-effective."],
+        ["Mike(外国客户)", "I want to find a manufacturer for long-term cooperation. Can you show me the production workshop?"],
+        ["Dara", "Let\'s go, come with me. How many do you want to order in this batch?"],
+        ["Mike(外国客户)", "For the first batch, we would like to order 1,000 pieces to check the quality. If everything is okay, we plan to order 10,000 in the next three months. What do you think?"],
+        ["Dara", "We can do it. Do you have any time schedule for production?"],
+        ["Mike(外国客户)", "We will open the market next month, so it would be better to finish everything within two weeks."],
+        ["Dara", "The time is a little tight. Will you transport the goods by air or by sea?"],
+        ["Mike(外国客户)", "Definitely by air. Shipping by sea takes about one month — too long to open the market."],
+        ["Dara", "Do you have a cooperation with an air company?"],
+        ["Mike(外国客户)", "Yes, we have a long-term cooperation. There\'s no problem."],
+        ["Dara", "Then we can transfer the products to your shipping agency."],
+        ["Mike(外国客户)", "Great, thank you, Dara!"],
+      ]},
+
+      { h: "四、核心语法:一般疑问句 + 情态动词", type: "list", items: [
+        "一般疑问句结构:<b>助动词 + 主语 + 动词原形</b>。句子里<b>有动词</b> → 用 <span class=\'en\'>do / does / did</span>;句子里<b>没有动词</b>(主系表)→ 用 <span class=\'en\'>am / is / are</span>。",
+        "例:<span class=\'en\'>Do you have any requirements?</span> / <span class=\'en\'>Does the shipping agency come to pick up the products?</span>(三单用 does)",
+        "情态动词(<span class=\'en\'>should / would / will / shall / can / could</span>)是<b>有实际意义的动词</b>,表达建议、能不能、要不要、愿不愿意等情绪态度;用法与一般疑问句一样:<b>情态动词 + 主语 + 动词原形</b>。",
+        "至此所有疑问句全部学完:特殊疑问句、一般疑问句、含情态动词的疑问句,结构通用。",
+        "造句前先判断两件事:① 句子有没有动词(决定用 do 还是 am/is/are);② 主语是谁。",
+        "搭配注意:形容词要放在名词前 — 说 <span class=\'en\'>online meeting</span> 而不是 meeting online;看样品用 <span class=\'en\'>see</span>,watch 多指看电视、手机等屏幕媒介。",
+      ]},
+
+      { h: "五、情态动词“中文锁定”口诀", type: "list", items: [
+        "<span class=\'en\'>should</span> = 该不该 → <span class=\'en\'>Should I ask the question?</span>",
+        "<span class=\'en\'>can / could</span> = 能不能 → <span class=\'en\'>Can we adjust the product dimensions?</span>",
+        "<span class=\'en\'>will</span> = 会不会 / 将要 → <span class=\'en\'>Will you finish the proposal within three months?</span>",
+        "<span class=\'en\'>shall</span> = 要不要 / ……好吗 → <span class=\'en\'>Shall we consider other design options?</span> / <span class=\'en\'>Shall I show you the renderings now?</span>",
+        "<span class=\'en\'>would</span> = 愿不愿意 → <span class=\'en\'>Would you like to see the samples?</span>",
+        "把这些中文词逐个锁定,就能准确区分 can 和 could、will 和 would 的细微差别,不会觉得它们\'都一样\'。",
+      ]},
+
+      { h: "六、课堂句型练习(8 句,中英对照)", type: "list", items: [
+        "你想要宽敞的仓库吗?<span class=\'en\'>Do you want a spacious warehouse?</span> / <span class=\'en\'>Would you like a spacious warehouse?</span>",
+        "产品包装的高度足够吗?<span class=\'en\'>Is the height of the product packaging sufficient?</span>(the height of… 的 of 结构;一个句子里只保留一个 is)",
+        "我是否适合负责你这个项目?<span class=\'en\'>Am I the right person to be in charge of your project?</span>(in charge of 是名词性短语,不能接 able to;负责也可用 <span class=\'en\'>be responsible for</span>)",
+        "我们应该考虑其他设计方案吗?<span class=\'en\'>Shall we consider other design options?</span>(option = 选项/方案,口语也可用 plan)",
+        "我们可以调整产品的尺寸吗?<span class=\'en\'>Can we adjust the product dimensions?</span>(dimension 比 size 更商务)",
+        "你们会在三个月内完成方案吗?<span class=\'en\'>Will you finish the proposal within three months?</span>(within = 在……之内;<span class=\'en\'>in three months</span> = 三个月后)",
+        "我现在给你展示效果图好吗?<span class=\'en\'>Shall I show you the renderings now?</span>(rendering = 效果图)",
+        "你愿意看看样品吗?<span class=\'en\'>Would you like to see the samples?</span>",
+      ]},
+
+      { h: "七、老师点评与建议", type: "list", items: [
+        "表扬:Dara 被问问题时学会了<b>反问对方</b>,让对话自然延续;听大意、抓重点的方法很好——没完全听懂也能沟通。",
+        "英语没有唯一标准答案,语法正确、意思清楚就是对的;遇到生词直接问 <span class=\'en\'>Can you tell me how to spell it?</span> 或 <span class=\'en\'>Pardon, could you say that again?</span>",
+        "情景对话中展现了专业的贸易商思维:关心交期、生产周期、是否急单,并提出空运/海运、货代等问题。",
+        "接下来计划:国庆课程顺延,假期保持<b>每天背单词</b>;10 月开始讲<b>陈述句</b>,之后疑问句与陈述句混合场景练习。",
+      ]},
+
+      { h: "课后作业", type: "homework", text: "1) 用一般疑问句的三种形式(do/does、am/is/are、情态动词)各造句,覆盖本课 8 个课堂句型;2) 国庆假期保持每天背单词;3) 国庆后第一课检查作业,开始学习陈述句。" },
+    ]
+  },
+// ★★★ 新课程粘贴在这一行的上方 ★★★
 ];
 
 /* 生词数据:w 单词 p 音标 m 释义 e 例句 c 例句中文 */
@@ -233,7 +316,34 @@ const WORDS = [
   { w:"order", p:"/ˈɔːdə(r)/", m:"n./v. 订单;订购(place an order 下单)", e:"We will place the order next week.", c:"我们下周会下单。" },
   { w:"spicy", p:"/ˈspaɪsi/", m:"adj. 辣的", e:"I like spicy food, like Chongqing hot pot.", c:"我喜欢辣的食物,比如重庆火锅。" },
   { w:"brand", p:"/brænd/", m:"n. 品牌", e:"Which brand do you like best?", c:"你最喜欢哪个品牌?" },
-  // ★★★ 新单词粘贴在这一行的上方 ★★★
+    { w:"borrow", p:"/ˈbɒrəʊ/", m:"v. 借入(borrow from sb 向某人借)", e:"He always borrows money from his friends.", c:"他总是向朋友借钱。" },
+  { w:"lend", p:"/lend/", m:"v. 借出(lend sb sth / lend sth to sb)", e:"I lent 30 dollars to my friend yesterday.", c:"我昨天借了 30 美元给我的朋友。" },
+  { w:"batch", p:"/bætʃ/", m:"n. 批次;一批(in this batch 这批)", e:"How many do you want to order in this batch?", c:"这批订单你想下多少?" },
+  { w:"requirement", p:"/rɪˈkwaɪəmənt/", m:"n. 要求;需求", e:"Do you have any requirements for this product?", c:"你对这个产品有什么要求?" },
+  { w:"spacious", p:"/ˈspeɪʃəs/", m:"adj. 宽敞的", e:"Do you want a spacious warehouse?", c:"你想要宽敞的仓库吗?" },
+  { w:"packaging", p:"/ˈpækɪdʒɪŋ/", m:"n. 包装", e:"Is the height of the product packaging sufficient?", c:"产品包装的高度足够吗?" },
+  { w:"sufficient", p:"/səˈfɪʃnt/", m:"adj. 足够的;充足的", e:"We have sufficient stock for this batch.", c:"这批货我们有足够的库存。" },
+  { w:"in charge of", p:"/ɪn tʃɑːdʒ əv/", m:"phr. 负责;主管", e:"Am I the right person to be in charge of your project?", c:"我适合负责你这个项目吗?" },
+  { w:"consider", p:"/kənˈsɪdə(r)/", m:"v. 考虑", e:"Shall we consider other design options?", c:"我们要不要考虑其他设计方案?" },
+  { w:"option", p:"/ˈɒpʃn/", m:"n. 选项;方案(design options 设计方案)", e:"We have two options for the delivery date.", c:"交期我们有两个方案。" },
+  { w:"adjust", p:"/əˈdʒʌst/", m:"v. 调整", e:"Can we adjust the product dimensions?", c:"我们可以调整产品尺寸吗?" },
+  { w:"dimension", p:"/daɪˈmenʃn/", m:"n. 尺寸(比 size 更商务)", e:"Please confirm the dimensions of the package.", c:"请确认包装的尺寸。" },
+  { w:"proposal", p:"/prəˈpəʊzl/", m:"n. 方案;建议书", e:"Will you finish the proposal within three months?", c:"你们会在三个月内完成方案吗?" },
+  { w:"within", p:"/wɪˈðɪn/", m:"prep. 在……之内", e:"We can finish production within two weeks.", c:"我们能在两周内完成生产。" },
+  { w:"rendering", p:"/ˈrendərɪŋ/", m:"n. 效果图", e:"Shall I show you the renderings now?", c:"我现在给你展示效果图好吗?" },
+  { w:"sample", p:"/ˈsɑːmpl/", m:"n. 样品", e:"Would you like to see the samples?", c:"你愿意看看样品吗?" },
+  { w:"display room", p:"/dɪˈspleɪ ruːm/", m:"n. 展示厅;陈列室", e:"I can take you to our display room.", c:"我可以带你去我们的展示厅。" },
+  { w:"production workshop", p:"/prəˈdʌkʃn ˈwɜːkʃɒp/", m:"n. 生产车间", e:"Can you show me the production workshop?", c:"能带我去看看生产车间吗?" },
+  { w:"cost-effective", p:"/ˌkɒst ɪˈfektɪv/", m:"adj. 性价比高的", e:"Our price is also cost-effective.", c:"我们的价格也很有性价比。" },
+  { w:"competitor", p:"/kəmˈpetɪtə(r)/", m:"n. 竞争者;竞争对手", e:"Our price is lower than our competitors.", c:"我们的价格比竞争对手低。" },
+  { w:"stationery", p:"/ˈsteɪʃənri/", m:"n. 文具(总称)", e:"We are looking for stationery products like pens and notebooks.", c:"我们在找笔、本子这类文具产品。" },
+  { w:"delivery", p:"/dɪˈlɪvəri/", m:"n. 交货;交付(delivery date 交期)", e:"Please give me the fastest delivery date.", c:"请给我最快的交期。" },
+  { w:"shipping agency", p:"/ˈʃɪpɪŋ ˈeɪdʒənsi/", m:"n. 货代;货运代理", e:"We can transfer the products to your shipping agency.", c:"我们可以把货转给你的货代。" },
+  { w:"freight forwarder", p:"/freɪt ˈfɔːwədə(r)/", m:"n. 货代;货运中介", e:"Do you have any freight forwarders in China?", c:"你们在中国有货代吗?" },
+  { w:"grape", p:"/ɡreɪp/", m:"n. 葡萄", e:"Xinjiang grapes are sweeter than ours.", c:"新疆的葡萄比我们这边的甜。" },
+  { w:"roast lamb", p:"/rəʊst læm/", m:"n. 烤羊肉(烤全羊:whole roast lamb)", e:"Xinjiang is famous for roast lamb.", c:"新疆的烤羊肉很有名。" },
+  { w:"sightseeing", p:"/ˈsaɪtsiːɪŋ/", m:"n. 观光;景点(natural sightseeing 自然景点)", e:"There are many beautiful natural sightseeing spots in Xinjiang.", c:"新疆有很多美丽的自然景点。" },
+// ★★★ 新单词粘贴在这一行的上方 ★★★
 ];
 
 /* ================= 工具函数 ================= */
