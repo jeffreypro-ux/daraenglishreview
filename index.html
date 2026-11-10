@@ -23,6 +23,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .logo .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#6a6ae0,#8a5cf6);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
 .nav a.nl{padding:7px 14px;border-radius:99px;font-size:14px;color:var(--sub);font-weight:600}
 .nav a.nl.on,.nav a.nl:hover{background:var(--purple-light);color:var(--purple)}
+.nav a.cta{background:linear-gradient(135deg,#ff8a3d,#ffb03d);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(255,138,61,.35)}
+.nav a.cta:hover{filter:brightness(1.07);background:linear-gradient(135deg,#ff8a3d,#ffb03d)}
 
 /* ===== 通用布局 ===== */
 main{max-width:960px;margin:0 auto;padding:26px 16px 70px}
@@ -124,6 +126,7 @@ footer{text-align:center;color:#a5a5bd;font-size:12.5px;padding:26px 16px 40px}
     <a class="nl" href="#/" target="_self" data-nav="home">课程</a>
     <a class="nl" href="#/vocabulary" target="_self" data-nav="vocab">生词本</a>
     <a class="nl" href="#/settings" target="_self" data-nav="settings">声音设置</a>
+    <a class="nl cta" href="https://my.feishu.cn/drive/folder/VAU8f1hROlTH9QdyfOncv4RLn3g?from=space_personal_filelist">🎬 课程回放</a>
   </div>
 </header>
 <main id="app"></main>
@@ -681,6 +684,58 @@ const LESSONS = [
       { h: "课后作业", type: "homework", text: "1) 周末把本周两次课(friendship 演讲 + 品质/直言)的笔记背熟,下周一抽查;2) 尝试注册 HelloTalk,先文字聊熟再语音;3) 按『好友介绍 + 品质 + 朋友犯错怎么办』三段式再练一遍综合表达。" },
     ]
   },
+  {
+    id: 10,
+    date: "2026-11-09",
+    title: "第 10 课:即兴重组 + 时光机话题(the more 句型)",
+    subtitle: "Mike 老师 · 英语口语提升",
+    summary: "课前复习 friendship 两个问答并复述上周江浙菜聚餐、降温天气;综合演练把『好友介绍 + 品质 + 朋友犯错』三个话题打乱顺序即兴重组成一段;新话题『如果回到 18 岁,你会对自己说什么』,精讲 the more... the more... 倒装句、go after 等地道表达;最后点评房子 tour 跟读作业,积累 cloud couch / entertaining area 等生活词汇。",
+    tags: ["即兴表达", "话题融合", "the more 句型", "时光机话题", "跟读点评"],
+    sections: [
+      { h: "一、课前热身与复习", type: "list", items: [
+        "周末去吃了江浙菜;深圳突然降温(temperature drop down),上海也冷,16 度、风大(wind is so strong)。",
+        "复习 friendship 两个问答:最看重的品质(honest / speak up / be true to ourselves)和朋友犯错要不要说(cut losses / jump to conclusions)——Dara 不看稿复述,完成度高。",
+      ]},
+
+      { h: "二、综合演练:三个话题打乱重组", type: "list", items: [
+        "要求:把『好友介绍、最看重的品质、朋友犯错怎么办』三个熟悉的话题<b>打乱顺序、即兴 mix</b> 成一段对友谊的看法——不能再背整篇稿,要练真正的口语表达。",
+        "精简原则:每一点一两句即可;开头给关键词(论点),过程简单描述一件事,结尾用<b>情绪感受词</b>收尾。",
+        "情绪词弹药库:<span class=\'en\'>frustrated</span>(沮丧的)、<span class=\'en\'>disgusting</span>(讨厌的)、<span class=\'en\'>adorable</span>(可爱的)、<span class=\'en\'>positive</span>(积极的);收尾句式 <span class=\'en\'>It makes me feel...</span> / <span class=\'en\'>I think the good friendship makes me positive about my life.</span>",
+        "Mike 即兴示范版本:先说关键词 honest → 我和陈梦常去爬山、也会吵架有分歧 → 我会直接给建议帮她及时止损 → 但现在会先问她怎么想 → 结论:友谊需要坦诚也需要倾听。",
+      ]},
+
+      { h: "三、新话题:如果回到 18 岁", type: "list", items: [
+        "话题:<span class=\'en\'>If you had a time machine and went back to 18, what would you tell yourself?</span> 一定要说真心话(true talk)才有意义。",
+        "Dara 的观点:多尝试新事物,不要害怕;每个阶段(stage)都有它存在的意义。",
+        "核心句型 <b>the more... the more...</b>:语序要倒装——先说宾语,<span class=\'en\'>The more things you try, the more chances you will get.</span>(不是 the more you try things)",
+        "『害怕』的两种地道表达:<span class=\'en\'>Most people are afraid of the unknown future, but you don\'t have to.</span>(承前省略)/ <span class=\'en\'>There\'s no need to be afraid.</span>",
+        "简单有力:<span class=\'en\'>Life is not perfect. We make mistakes and we improve.</span>(犯错才会进步;make mistakes 犯错)",
+        "收尾金句:<span class=\'en\'>So just be brave and go after what you want.</span>(勇敢去追求你想要的;go after = 朝着目标冲,比 do 更形象)",
+        "整段范文:When I was back to 18 years old, I would like to tell myself that the more things you try, the more chances you will get. Most people are afraid of the unknown future, but you don\'t have to. Life is not perfect — we make mistakes and we improve. So just be brave and go after what you want.",
+      ]},
+
+      { h: "四、话题融合练习", type: "list", items: [
+        "把新学的句子(如 the more... the more...)融入 friendship 话题,而不是每个话题孤立——每学一句就是往<b>弹药库</b>里添一颗子弹。",
+        "Dara 当堂融合:We should meet all kinds of friends — the more friends we meet, the more we learn about the world. 友谊最重要的是 honesty...",
+        "意识先行:先有用某个句型的意识,再交给时间培养口腔肌肉和大脑反应。",
+      ]},
+
+      { h: "五、跟读作业点评(房子 tour 视频)", type: "list", items: [
+        "素材:Kendall 房子 tour 视频;长句多遍跟读,重点句子读顺三次。",
+        "高频表达:<span class=\'en\'>cloud couch</span>(云朵沙发)、<span class=\'en\'>I redid it into... fabric</span>(我把它换成了……布料)、<span class=\'en\'>just to kind of go with my house</span>(为了和房子风格搭一点)、<span class=\'en\'>we watch games, watch the bachelor and chill out</span>(放松瘫着)、<span class=\'en\'>these doors all open really nicely</span>、<span class=\'en\'>a nice little entertaining area</span>(小娱乐区)、<span class=\'en\'>it\'s just nice to get fresh air</span>。",
+        "<span class=\'en\'>Technically these are two bedrooms, but I needed the space</span>(严格说这两间是卧室,但我需要这个空间);<span class=\'en\'>fitting room</span> 试衣间 / <span class=\'en\'>glam room</span> 化妆间;<span class=\'en\'>a little bit cluttered</span>(有点乱,但自己都找得到东西)。",
+        "注意:视频语速快是因为剪辑,不要怀疑自己;生词读熟三遍再加速。",
+      ]},
+
+      { h: "六、老师点评", type: "list", items: [
+        "要会两种模式:正式演讲(长难句)和随意闲聊(简单主谓宾过渡)——全部用书面长句会显得太正式、像演讲,不会聊天。",
+        "即兴表达是下阶段重点:不可能每次都准备好,要锻炼想到什么说什么的能力,老师会给提示辅助。",
+        "每堂课积累的句子要灵活运用,不要背死;口语进步交给时间,持续堆量。",
+      ]},
+
+      { h: "课后作业", type: "homework", text: "1) 背熟『回到 18 岁』范文,并尝试把 the more 句型用到 friendship 话题里;2) 继续房子 tour 跟读,重点句子各读顺三遍;3) 周五上课继续抽查即兴重组(三话题混搭)。" },
+    ]
+  },
 // ★★★ 新课程粘贴在这一行的上方 ★★★
 ];
 
@@ -867,6 +922,22 @@ const WORDS = [
   { w:"instead", p:"/ɪnˈsted/", m:"adv. 相反;而是(比 but 更准确的转折)", e:"Instead, I would like to ask her first.", c:"相反,我想先问问她。" },
   { w:"whether", p:"/ˈweðə(r)/", m:"conj. 是否(whether I should... 我是否应该……)", e:"Only then can I decide whether I should give my advice.", c:"只有到那时我才能决定是否给出建议。" },
   { w:"advice", p:"/ədˈvaɪs/", m:"n. 建议(不可数!give sb advice)", e:"I can give her some advice.", c:"我可以给她一些建议。" },
+  { w:"frustrated", p:"/frʌˈstreɪtɪd/", m:"adj. 沮丧的;懊恼的", e:"It makes me feel frustrated when friends lie.", c:"朋友撒谎会让我沮丧。" },
+  { w:"disgusting", p:"/dɪsˈɡʌstɪŋ/", m:"adj. 讨厌的;恶心的", e:"I don\'t like discussing people — it makes me feel disgusting.", c:"我不喜欢议论别人,那感觉很难受。" },
+  { w:"adorable", p:"/əˈdɔːrəbl/", m:"adj. 可爱的;令人喜欢的", e:"Her dog is so adorable.", c:"她的狗真可爱。" },
+  { w:"positive", p:"/ˈpɒzətɪv/", m:"adj. 积极的;正面的", e:"A good friendship makes me positive about my life.", c:"好的友谊让我对人生更积极。" },
+  { w:"stage", p:"/steɪdʒ/", m:"n. 阶段;时期(every stage 每个阶段)", e:"Every stage of life has its own meaning.", c:"人生的每个阶段都有它的意义。" },
+  { w:"the more... the more...", p:"/ðə mɔː ðə mɔː/", m:"phr. 越……越……(倒装:the more things you try)", e:"The more things you try, the more chances you will get.", c:"尝试的东西越多,机会就越多。" },
+  { w:"unknown", p:"/ˌʌnˈnəʊn/", m:"adj. 未知的(the unknown future 未知的未来)", e:"Most people are afraid of the unknown future.", c:"大多数人害怕未知的未来。" },
+  { w:"there\'s no need to", p:"/ðeəz nəʊ niːd tuː/", m:"phr. 没必要……", e:"There\'s no need to be afraid.", c:"没必要害怕。" },
+  { w:"make mistakes", p:"/meɪk mɪˈsteɪks/", m:"phr. 犯错", e:"Life is not perfect — we make mistakes and we improve.", c:"人生不完美,我们犯错并成长。" },
+  { w:"brave", p:"/breɪv/", m:"adj. 勇敢的", e:"Just be brave and go after what you want.", c:"勇敢一点,去追求你想要的。" },
+  { w:"go after", p:"/ɡəʊ ˈɑːftə/", m:"phr. 追求;追逐(朝着目标冲)", e:"Go after what you want.", c:"去追你想要的。" },
+  { w:"chill out", p:"/tʃɪl aʊt/", m:"phr. 放松;瘫着", e:"We watch games and chill out on the couch.", c:"我们躺在沙发上看比赛放松。" },
+  { w:"entertaining area", p:"/ˌentəˈteɪnɪŋ ˈeəriə/", m:"n. 娱乐区", e:"It\'s a nice little entertaining area.", c:"这是个不错的小娱乐区。" },
+  { w:"fitting room", p:"/ˈfɪtɪŋ ruːm/", m:"n. 试衣间", e:"I made the room into a fitting room.", c:"我把那个房间改成了试衣间。" },
+  { w:"cluttered", p:"/ˈklʌtəd/", m:"adj. 杂乱的;凌乱的", e:"It\'s a little bit cluttered, but I know where everything is.", c:"有点乱,但东西放哪我都知道。" },
+  { w:"fabric", p:"/ˈfæbrɪk/", m:"n. 布料;织物", e:"I redid the couch into a rougher fabric.", c:"我把沙发换成了更粗一点的布料。" },
 // ★★★ 新单词粘贴在这一行的上方 ★★★
 ];
 
