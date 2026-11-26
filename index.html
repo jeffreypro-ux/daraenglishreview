@@ -93,6 +93,14 @@ main{max-width:960px;margin:0 auto;padding:26px 16px 70px}
 .vex{border-top:1px dashed var(--line);padding-top:10px;font-size:13.5px}
 .vex .cn{color:var(--sub);display:block;margin-top:3px;font-size:13px}
 
+/* ===== 范文中心 ===== */
+.ecard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px;box-shadow:var(--shadow);margin-bottom:16px}
+.ehead{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.ehead h3{font-size:16px}
+.etag{font-size:12px;background:var(--purple-light);color:var(--purple);padding:2px 10px;border-radius:99px;font-weight:600}
+.een{font-size:15.5px;line-height:1.9}
+.ecn{font-size:13px;color:var(--sub);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+
 /* ===== 设置页 ===== */
 .setcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
 .setrow{margin-bottom:22px}
@@ -125,6 +133,7 @@ footer{text-align:center;color:#a5a5bd;font-size:12.5px;padding:26px 16px 40px}
     <a class="logo" href="#/" target="_self"><span class="mark">D</span>Dara 英语复习站</a>
     <a class="nl" href="#/" target="_self" data-nav="home">课程</a>
     <a class="nl" href="#/vocabulary" target="_self" data-nav="vocab">生词本</a>
+    <a class="nl" href="#/essays" target="_self" data-nav="essays">范文中心</a>
     <a class="nl" href="#/settings" target="_self" data-nav="settings">声音设置</a>
     <a class="nl cta" href="https://my.feishu.cn/drive/folder/VAU8f1hROlTH9QdyfOncv4RLn3g?from=space_personal_filelist">🎬 课程回放</a>
   </div>
@@ -822,6 +831,56 @@ const LESSONS = [
       { h: "课后作业", type: "homework", text: "1) 计时 1 分钟练『欢乐谷之夜』正序+换序各一遍;2) 用副词回答 friends 三问并录音;3) 下载英语趣配音,完成 2-3 个配音作品;4) 继续在 HelloTalk 找人深聊。" },
     ]
   },
+  {
+    id: 13,
+    date: "2026-11-25",
+    title: "第 13 课:描述一个人(五官画面感 + 欣赏的人叙事)",
+    subtitle: "Mike 老师 · 英语口语提升",
+    summary: "课前指导 HelloTalk 如何从打字自然过渡到语音、建议参加英语角;新话题『描述一个人』——用五官(眼/耳/鼻/嘴)抓信息点制造画面感,从黄仁勋、川普练外观+形象描述;用『最欣赏的人』(德鲁克、身边领导)练习外观→性格→事例→感受的完整叙事;深层的『他怎么处理问题』故事(背景→处理→情绪变化→意义);下节课预告随机副词训练。",
+    tags: ["描述人物", "五官画面感", "personal image", "admire叙事", "副词训练"],
+    sections: [
+      { h: "一、课前:语伴进阶指导", type: "list", items: [
+        "HelloTalk 进展:还在文字阶段。过渡语音的技巧:先打字聊几个回合(问对方为什么学中文、来过中国吗),聊两三轮后自然而然问『现在有没有空语音聊一下』——不要带目的性。",
+        "聊天素材:异性聊文化差异(彩礼、恋爱观),同性聊化妆、明星,共同话题更好展开。",
+        "建议抽空去<b>英语角</b>:面对面聊一次好过几节课,带着问题回来调整,提高更快。",
+      ]},
+
+      { h: "二、核心方法:用五官描述一个人", type: "list", items: [
+        "描述陌生人的目标:让对方快速 get 到、有<b>画面感</b>——用五官抓信息点输出:眼睛看外观、耳朵听声音、鼻子闻味道、嘴巴听说话方式。",
+        "外观引入性格:<span class=\'en\'>My best friend Jenny has long hair and big eyes — she looks so lovely.</span> 再自然转折:<span class=\'en\'>Although she looks pretty, sometimes she does things not carefully.</span>",
+        "人物外观词汇:<span class=\'en\'>leather jacket</span> 皮衣、<span class=\'en\'>suit</span> 西装、<span class=\'en\'>big belly</span> 大肚子、white hair;<span class=\'en\'>personal image</span> 个人形象。",
+        "气场描述:<span class=\'en\'>He looks powerful / confident / full of energy</span>,也可以实话实说:<span class=\'en\'>He looks so down, not confident at all.</span>",
+        "练习示例(黄仁勋):<span class=\'en\'>I think he looks confident — he has white hair, looks a little short, and he always wears a black leather jacket in public. He did so many famous work, like inventing chips.</span>",
+        "描述结构:外观(一两点即可,五选一五选二)→ 性格 → 他做了什么 → 你的感受。",
+      ]},
+
+      { h: "三、话题:Who do you admire most(欣赏的人)", type: "list", items: [
+        "名人版(德鲁克):<span class=\'en\'>When I first noticed him from a book, he had white hair and always wore black suits. He looks kind. Honestly, he wrote so many books about management — his researches show how to manage a company. Anyway, I have admired him since university.</span>",
+        "身边版(领导/同事):<span class=\'en\'>Actually, one of the people I admire is my manager. When I first saw him, he was thin and didn\'t look powerful. However, when I worked with him, I found he really had his own opinions and practiced them deeply. Obviously, he keeps doing things no matter what the result is. To be honest, I really admire him.</span>",
+        "要求:开头一个副词 + 结尾一个副词;五官只取一两点引入,不用全说。",
+      ]},
+
+      { h: "四、深层叙事:他怎么处理一个问题", type: "list", items: [
+        "叙事四步:<b>背景</b>(他是谁、你们在做什么、遇到什么问题)→ <b>他怎么处理</b> → <b>你的情绪变化</b>(处理前/后)→ <b>这件事对你的意义</b>。",
+        "成品:<span class=\'en\'>One of my admired people is my manager. When we had a problem, we just didn\'t know how to solve it. However, my manager held a meeting and told us how to do it step by step. At last we solved the problem. It made me realize that we should think about the situation first, then the steps, and go forward step by step.</span>",
+        "计时 1 分钟注意:不要塞得太满——说几句停两三秒,用副词引导思考。",
+      ]},
+
+      { h: "五、描述人快问快答(可打乱顺序)", type: "list", items: [
+        "第一印象:<span class=\'en\'>What do you notice first when he enters a room?</span>(气场/energy/powerful)",
+        "说话方式:<span class=\'en\'>How does he speak to people?</span>(He is good at expressing things so we can follow his way to solve the problem.)",
+        "相处感受:<span class=\'en\'>How do you feel around him?</span>(I feel relaxed because he is kind and gentle, and he practices his opinions deeply until the result.)",
+      ]},
+
+      { h: "六、老师点评与下节预告", type: "list", items: [
+        "方向对了,缺的是刻意训练;现在的问题:1 分钟塞得太满、说完记不住自己说了什么。",
+        "要学会<b>停</b>:说几句停 5 秒,用副词引导思考(actually / especially / luckily / surprisingly / anyway),填充词 <span class=\'en\'>well, I mean...</span> 过渡。",
+        "下节课:Mike 随机给副词,每隔几秒强制插入——把『副词引导思考』变成习惯。",
+      ]},
+
+      { h: "课后作业", type: "homework", text: "1) 用五官法写一段 1 分钟『我最欣赏的人』(身边真人版),开头结尾各一个副词;2) 准备『他怎么处理问题』的深层叙事版;3) HelloTalk 尝试自然过渡到一次语音聊天;4) 抽空去一次英语角。" },
+    ]
+  },
 // ★★★ 新课程粘贴在这一行的上方 ★★★
 ];
 
@@ -1057,7 +1116,39 @@ const WORDS = [
   { w:"drawback", p:"/ˈdrɔːbæk/", m:"n. 缺点;不利条件", e:"A big group of friends has its drawbacks.", c:"一大群朋友也有它的缺点。" },
   { w:"obviously", p:"/ˈɒbviəsli/", m:"adv. 显然;明显地", e:"Obviously, a lot of normal friends will take more time.", c:"显然,很多普通朋友会占用更多时间。" },
   { w:"interact", p:"/ˌɪntərˈækt/", m:"v. 互动", e:"The actors interacted with us so friendly.", c:"演员们和我们友好互动。" },
+  { w:"admire", p:"/ədˈmaɪə(r)/", m:"v. 欣赏;钦佩(Who do you admire most?)", e:"To be honest, I really admire him.", c:"说实话,我真的很欣赏他。" },
+  { w:"personal image", p:"/ˈpɜːsənl ˈɪmɪdʒ/", m:"n. 个人形象", e:"He always wears a black leather jacket in public — that's his personal image.", c:"他公共场合总穿黑皮衣,那是他的个人形象。" },
+  { w:"leather jacket", p:"/ˈleðə ˈdʒækɪt/", m:"n. 皮夹克;皮衣", e:"He always wears a black leather jacket.", c:"他总是穿一件黑色皮衣。" },
+  { w:"suit", p:"/suːt/", m:"n. 西装", e:"He always wears a suit in public.", c:"他公共场合总穿西装。" },
+  { w:"belly", p:"/ˈbeli/", m:"n. 肚子(big belly 大肚子)", e:"He has a big belly and a sense of humor.", c:"他肚子大大的,还很幽默。" },
+  { w:"confident", p:"/ˈkɒnfɪdənt/", m:"adj. 自信的", e:"I think he looks confident in public.", c:"我觉得他在公众场合看起来很自信。" },
+  { w:"powerful", p:"/ˈpaʊəfl/", m:"adj. 有气场的;强大的", e:"He looks powerful when he enters the room.", c:"他进房间时气场很强。" },
+  { w:"muscle", p:"/ˈmʌsl/", m:"n. 肌肉", e:"He is thin and doesn't have many muscles.", c:"他很瘦,没什么肌肉。" },
+  { w:"thin", p:"/θɪn/", m:"adj. 瘦的", e:"When I first saw him, he was a little thin.", c:"我第一次见他时,他有点瘦。" },
+  { w:"definitely", p:"/ˈdefɪnətli/", m:"adv. 肯定;当然", e:"He is definitely a person worth admiring.", c:"他绝对是个值得欣赏的人。" },
+  { w:"surprisingly", p:"/səˈpraɪzɪŋli/", m:"adv. 令人惊讶地", e:"Surprisingly, he kept singing at that age.", c:"令人惊讶的是,他那个年纪还在坚持唱歌。" },
+  { w:"luckily", p:"/ˈlʌkɪli/", m:"adv. 幸运地", e:"Luckily, I met a good teacher.", c:"幸运的是,我遇到一位好老师。" },
+  { w:"however", p:"/haʊˈevə(r)/", m:"adv. 然而(句中转折,比 but 更书面)", e:"He looks thin. However, he is full of energy.", c:"他看着瘦,然而精力很充沛。" },
+  { w:"step by step", p:"/step baɪ step/", m:"phr. 逐步地;一步一步", e:"He told us how to do it step by step.", c:"他一步一步告诉我们怎么做。" },
 // ★★★ 新单词粘贴在这一行的上方 ★★★
+];
+
+
+/* 范文中心数据:lesson 所属课程 title 标题 en 英文范文 cn 中文大意 */
+const ESSAYS = [
+  { lesson: "第 3 课", title: "自我介绍(并列句)", en: "Hello everyone. My name is Dara. I\'m usually busy at work, but I love my job very much. I can speak a little English, but I can\'t do it well, so now I study to learn English. I like music and traveling, and I also like spicy food. The railway station is far away from my home, so I have to take a bus to go to work every day. This is me, thank you everyone.", cn: "用 and / but / so 串联主谓宾、主系表,一段话讲清自己。" },
+  { lesson: "第 3 课", title: "公司介绍演讲", en: "Hello everyone, I\'d like to introduce our company. We supply all kinds of office products. These consumables are a part of our daily work. It sounds pretty ordinary, right? Many customers think office products can be bought casually, but it\'s not easy to find long-term, stable products. When I started in this industry, I thought it\'s just selling office products, but after working with so many business clients, I grew to love this job. Office products may seem unimportant, but we should carefully control the product quality. Good customers are able to improve their office efficiency. It is able to help customers to save time, and it can also help them manage their office budget. And it also makes work easier. This is our company, thank you.", cn: "含被动语态 can be bought、grow to do、be able to、not only...but also 的完整公司介绍。" },
+  { lesson: "第 5 课", title: "假期演讲:Describe your last holiday", en: "The last holiday is the Chinese National holiday. Do you go traveling on this holiday? I think most people would like to go traveling because it\'s a seven-day holiday. But for me, I\'d like to go back to my hometown, because the tourist attractions are full of people. I asked my friends to climb the local mountains. We enjoyed the fresh air and the green trees. After that, we went to a local famous restaurant and tried the traditional Chinese dishes — they tasted delicious. At night, we went to the countryside and watched the Chinese opera. It reminds me of my childhood. It\'s just like a time machine. Although the holiday sounds normal, I really enjoyed it and I loved it.", cn: "疑问句引入 → 观点 → 三个细节 → although 收尾;比喻 time machine 加分。" },
+  { lesson: "第 6 课", title: "挑战演讲(Mike 示范:学英语)", en: "I want to talk about my biggest challenge — it\'s the way I learn English. If I learn English well, it means I have a lot of possibility to improve my work or my salary. Although it\'s hard, I will try my best to do it. So here\'s the plan that I\'m working on right now.", cn: "if / although / 定语从句三连,挑战类话题的骨架。" },
+  { lesson: "第 6 课", title: "挑战演讲(Dara 成品:学游泳)", en: "If you ask me what\'s my biggest challenge, I would say swimming. When I was a child, I couldn\'t swim. But when I go to work, I try to learn swimming. Although swimming is a little difficult, I still keep doing it. This is the attitude I want, because swimming is like life — we should keep going and work hard.", cn: "四状语从句 + 定语从句 + 上价值收尾的完整范本。" },
+  { lesson: "第 8 课", title: "友谊演讲:My best friend", en: "My best friend is Chen Meng. When I was in college, we met each other. She was my classmate and roommate as well. The reason why we become best friends is that we have so many hobbies. We both like going to places surrounded by nature, and we also like sweet food. If you ask me what makes our friendship special, I will let you know. I remember once we went hiking. Halfway, I felt so tired and wanted to give up. But she kept encouraging me and didn\'t let me give up. Finally, we reached the peak. I think a good friend doesn\'t need so many amazing adventures. Just staying together through every day is quite enough.", cn: "四段框架:介绍 → 原因(the reason why...)→ 难忘经历 → 上价值收尾。" },
+  { lesson: "第 9 课", title: "诚实:最看重的品质", en: "Being honest is so important in friendship, because I think a stable relationship is built on not hiding many things from each other. When we don\'t like something or have different opinions, we need to speak up. In this way, we both can be true to ourselves, so that the relationship will last steadily.", cn: "动名词作主语 + be built on + speak up + so that 的长句范本。" },
+  { lesson: "第 10 课", title: "时光机:回到 18 岁", en: "When I was back to 18 years old, I would like to tell myself that the more things you try, the more chances you will get. Most people are afraid of the unknown future, but you don\'t have to. Life is not perfect — we make mistakes and we improve. So just be brave and go after what you want.", cn: "the more...the more 倒装 + 排比短句 + go after 收尾金句。" },
+  { lesson: "第 11 课", title: "明星话题:张学友", en: "He sings so well and he has a good voice. He is one of the four kings of Canton pop, and he has a lot of famous songs, especially the one called 1000 Reasons to Be Sad in Love. Probably some people don\'t like him, but I love his songs. Honestly, I\'m not a crazy fan, but I actually went to his concert — that\'s why I like him.", cn: "先给结论 + 副词放句首(probably / honestly / actually / especially)。" },
+  { lesson: "第 11 课", title: "重要决定:从银行辞职", en: "I quit my job at the bank a few years ago. Honestly, it\'s an important and difficult decision for me. I felt like a bird in the cage — if I stayed, I could never fly out. Probably for some people, they like the stable life, but for me, I want to try new things. That\'s what I think.", cn: "决定类话题:结论先行 + 鸟笼比喻 + 对比 + 从句收尾。" },
+  { lesson: "第 12 课", title: "欢乐谷之夜:Describe an enjoyable evening", en: "One of my enjoyable evenings is that I went to Shanghai Happy Valley with my five colleagues. We played so many entertainment projects like roller coasters, pirate ships and merry-go-rounds. We took pictures and watched evening performances. Honestly, I\'m scared of roller coasters, but encouraged by my colleagues, I tried it and felt so excited. If you ask me why I enjoyed that evening: first, we are familiar with each other, so we played relaxedly; secondly, we avoided the peak season, so there weren\'t many people and we could play more projects. Anyway, I think it was a wonderful evening.", cn: "四要素齐全 + honestly 细节 + anyway 救场收尾。" },
+  { lesson: "第 13 课", title: "欣赏的人(身边真人版)", en: "Actually, one of the people I admire is my manager. When I first saw him, he was thin and didn\'t look powerful. However, when I worked with him, I found he really had his own opinions and practiced them deeply. Obviously, he keeps doing things no matter what the result is. To be honest, I really admire him.", cn: "开头副词 + 外观转折到性格 + 结尾副词,描述人的完整范式。" },
+  { lesson: "第 13 课", title: "他怎么处理一个问题(深层叙事)", en: "One of my admired people is my manager. When we had a problem, we just didn\'t know how to solve it. However, my manager held a meeting and told us how to do it step by step. At last we solved the problem. It made me realize that we should think about the situation first, then the steps, and go forward step by step.", cn: "背景 → 处理 → 情绪变化 → 意义,叙事四步范本。" },
 ];
 
 /* ================= 工具函数 ================= */
@@ -1176,6 +1267,22 @@ function renderVocab(){
   document.getElementById("vsearch").addEventListener("input", function(e){ draw(e.target.value); });
 }
 
+function renderEssays(){
+  app.innerHTML =
+    '<a class="backlink" href="#/" target="_self">← 返回课程列表</a>' +
+    '<div class="sec-title" style="margin-top:0">范文中心(' + ESSAYS.length + ' 篇)</div>' +
+    '<p style="font-size:13.5px;color:var(--sub);margin-bottom:16px">每节课沉淀下来的完整范文:先听熟 → 再跟读 → 最后脱稿复述。点击 🔊 听整篇发音。</p>' +
+    ESSAYS.map(function(e,i){
+      return '<div class="ecard">' +
+        '<div class="ehead"><h3>' + (i+1) + '. ' + e.title + '</h3>' +
+        '<span class="etag">' + e.lesson + '</span>' +
+        sayBtn(e.en).replace('class="say"','class="say big"') + '</div>' +
+        '<div class="een">' + e.en + '</div>' +
+        (e.cn ? '<div class="ecn">' + e.cn + '</div>' : '') +
+      '</div>';
+    }).join('');
+}
+
 function renderSettings(){
   const options = VOICES.map(function(v){
     const mark = FEMALE_RE.test(v.name) ? " 💃" : "";
@@ -1210,6 +1317,7 @@ function route(){
   const m = h.match(/#\/lesson\/(\d+)/);
   if(m){ renderLesson(parseInt(m[1], 10)); document.querySelector('[data-nav="home"]').classList.add("on"); }
   else if(h.indexOf("#/vocab") === 0){ renderVocab(); document.querySelector('[data-nav="vocab"]').classList.add("on"); }
+  else if(h.indexOf("#/essays") === 0){ renderEssays(); document.querySelector('[data-nav="essays"]').classList.add("on"); }
   else if(h.indexOf("#/settings") === 0){ renderSettings(); document.querySelector('[data-nav="settings"]').classList.add("on"); }
   else { renderHome(); document.querySelector('[data-nav="home"]').classList.add("on"); }
   window.scrollTo(0, 0);
